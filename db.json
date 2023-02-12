@@ -1,22 +1,16 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "json-server",
-      "phoneNumber": "0359875710",
-      "email":"vuongzxkk1@gmail.com"
-    },
-    {
       "id": 2,
-      "name": "json-server2",
-      "phoneNumber": "03598757102",
-      "email":"vuongzxkk1@gmail.com2"
+      "name": "json-server2 update",
+      "phoneNumber": "03598757102 update",
+      "email": "vuongzxkk1@gmail.com2"
     },
     {
       "id": 3,
       "name": "json-server3",
       "phoneNumber": "03598757103",
-      "email":"vuongzxkk1@gmail.com3"
+      "email": "vuongzxkk1@gmail.com3"
     }
   ]
 }
