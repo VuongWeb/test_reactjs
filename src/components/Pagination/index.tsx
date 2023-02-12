@@ -21,17 +21,6 @@ const Pagition = (props: Props) => {
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm text-gray-700">
-            Showing
-            <span className="font-medium">1</span>
-            to
-            <span className="font-medium">10</span>
-            of
-            <span className="font-medium">97</span>
-            results
-          </p>
-        </div>
-        <div>
           <nav
             className="isolate inline-flex -space-x-px rounded-md shadow-sm"
             aria-label="Pagination"
@@ -56,7 +45,6 @@ const Pagition = (props: Props) => {
                 />
               </svg>
             </a>
-            {/* Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */}
             <a
               href="#"
               aria-current="page"

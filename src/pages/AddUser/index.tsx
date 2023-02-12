@@ -1,11 +1,20 @@
-import React from 'react'
+import React from "react";
+import Form from "../../components/FormUser/index.tsx";
 
-type Props = {}
+type Props = {};
 
 const AddUser = (props: Props) => {
-  return (
-    <div>AddUser</div>
-  )
-}
+  const propsForm = {
+    key : "add",
+    input: ["name", "phoneNumber", "email"],
+  };
 
-export default AddUser
+  return (
+    <div>
+      AddUser
+      <Form propsForm={propsForm} />
+    </div>
+  );
+};
+
+export default AddUser;
