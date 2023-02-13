@@ -30,8 +30,8 @@ function ListUser(props: Props) {
 
   return (
     <div className="w-8/12 mx-auto">
-      <h2>ListUser</h2>
-      <button>
+      <h2 className="text-[30px] py-[20px] font-[600]"> ListUser</h2>
+      <button className="float-right bg-green-600 py-3 px-5 text-white rounded-[15px]">
         <Link to={`/users/add`}>Add</Link>
       </button>
       <Table users={users} action={handdleRemove} />

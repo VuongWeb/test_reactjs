@@ -29,12 +29,18 @@ const Table = (props: Props) => {
                 <td>{item.phoneNumber}</td>
                 <td>{item.email}</td>
                 <td>
-                  <Link to={`/users/edit/${item.id}`}>Edit</Link>
-                </td>
-                <td>
+                  <Link
+                    className="bg-blue-600 py-3 px-5 text-white rounded-[15px] mx-3"
+                    to={`/users/edit/${item.id}`}
+                  >
+                    Edit
+                  </Link>
                   <button
+                    className="bg-red-600 py-3 px-5 text-white rounded-[15px]"
                     onClick={() => {
-                      action(item.id);
+                      if (window.confirm("bạn chắc chắn xóa !")) {
+                        action(item.id);
+                      }
                     }}
                   >
                     Remove

@@ -6,7 +6,6 @@ import AddUser from './pages/AddUser/index.tsx';
 import EditUser from './pages/EditUser/index.tsx';
 import ListUsers from './pages/ListUsers/index.tsx';
 
-
 function App() {
   return (
     <div className="App">
