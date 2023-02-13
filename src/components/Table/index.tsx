@@ -1,32 +1,14 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { TUser } from "../../models/users";
 
 type Props = {
   users: TUser[];
+  action: any;
 };
 
 const Table = (props: Props) => {
-  const { users } = props;
-
-  const [list, setList] = useState<TUser[]>();
-  setList(users);
-
-  const hanleRemove = (id: any) => {
-    axios
-      .delete(`http://localhost:3000/users/${id}`)
-      .then(function (response) {
-        // setList(
-        //   list?.filter(item => item.id !== id)
-        // );
-      })
-      .catch(function (error) {
-        console.log("xóa lỗi");
-      });
-  };
-
-  // useEffect(() => {}, [list]);
+  const { users, action } = props;
 
   return (
     <table className="table-auto mx-auto text-center">
@@ -39,8 +21,8 @@ const Table = (props: Props) => {
         </tr>
       </thead>
       <tbody>
-        {list &&
-          list.map((item: TUser, i) => {
+        {users &&
+          users.map((item: TUser, i) => {
             return (
               <tr key={i}>
                 <td>{item.name}</td>
@@ -52,7 +34,7 @@ const Table = (props: Props) => {
                 <td>
                   <button
                     onClick={() => {
-                      hanleRemove(item.id);
+                      action(item.id);
                     }}
                   >
                     Remove
