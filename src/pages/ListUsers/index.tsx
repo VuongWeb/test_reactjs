@@ -11,7 +11,7 @@ function ListUser(props: Props) {
 
   const handdleRemove = (id) => {
     axios
-        .delete(`http://localhost:3000/users/${id}`)
+        .delete(`http://localhost:8000/users/${id}`)
         .then(function (response) {
             setUsers(users.filter(item => item.id !== id))          
         })
@@ -22,7 +22,7 @@ function ListUser(props: Props) {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:3000/users",
+      url: "http://localhost:8000/users",
     }).then(function (response) {
       setUsers(response.data);
     });

@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { TUser } from "../../models/users";
 
+
 type Props = {
   propsForm: any;
 };
@@ -25,7 +26,7 @@ const Form = (props: Props) => {
   const onHandleSubmit: SubmitHandler<TUser> = (user) => {
     if (propsForm.key == "add") {
       axios
-        .post("http://localhost:3000/users", user)
+        .post("http://localhost:8000/users", user)
         .then(function (response) {
           toast.success("thêm thành công !");
           setTimeout(() => {
@@ -38,7 +39,7 @@ const Form = (props: Props) => {
     } else if (propsForm.key == "edit") {
       const id = params.id;
       axios
-        .put(`http://localhost:3000/users/${id}`, user)
+        .put(`http://localhost:8000/users/${id}`, user)
         .then(function (response) {
           toast.success("sửa thành công !");
           setTimeout(() => {
@@ -55,7 +56,7 @@ const Form = (props: Props) => {
     if (params.id) {
       const id = params.id;
       axios
-        .get(`http://localhost:3000/users/${id}`)
+        .get(`http://localhost:8000/users/${id}`)
         .then(function (response) {
           reset(response.data);
           console.log("sửa ok");
