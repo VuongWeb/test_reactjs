@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { useNavigate, useParams } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { TUser } from "../../models/users";
 
 type Props = {
@@ -25,7 +26,7 @@ const Form = (props: Props) => {
   const onHandleSubmit: SubmitHandler<TUser> = (user) => {
     if (propsForm.key == "add") {
       axios
-        .post("http://localhost:3000/users", user)
+        .post("http://localhost:8000/users", user)
         .then(function (response) {
           toast.success("thêm thành công !");
           setTimeout(() => {
@@ -38,7 +39,7 @@ const Form = (props: Props) => {
     } else if (propsForm.key == "edit") {
       const id = params.id;
       axios
-        .put(`http://localhost:3000/users/${id}`, user)
+        .put(`http://localhost:8000/users/${id}`, user)
         .then(function (response) {
           toast.success("sửa thành công !");
           setTimeout(() => {
@@ -55,7 +56,7 @@ const Form = (props: Props) => {
     if (params.id) {
       const id = params.id;
       axios
-        .get(`http://localhost:3000/users/${id}`)
+        .get(`http://localhost:8000/users/${id}`)
         .then(function (response) {
           reset(response.data);
           console.log("sửa ok");
@@ -86,11 +87,14 @@ const Form = (props: Props) => {
                   {item}
                 </label>
                 <input
-                  {...register(`${item}`)}
+                  {...register(`${item}`, { required: true })}
                   name={item}
                   type="text"
                   className="p-3 mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 />
+                {errors[item] && errors[item]?.type === 'required' && <span className="text-red-600">
+                  is required !
+                </span>}
               </div>
             );
           })}
