@@ -1,16 +1,28 @@
 {
   "users": [
     {
-      "name": "Vuong Le Van",
-      "phoneNumber": "0359875710",
-      "email": "123@gmail.com",
+      "name": "Lê Văn Vương upate",
+      "phoneNumber": "123 3333",
+      "email": "vuongzxkk1@gmail.com",
       "id": 1
     },
     {
-      "name": "",
-      "phoneNumber": "",
-      "email": "",
+      "name": "products A",
+      "phoneNumber": "0359875710",
+      "email": "longbd@gmail",
       "id": 2
+    },
+    {
+      "name": "Đỗ Thị Tuyết Mai",
+      "phoneNumber": "03598757103",
+      "email": "longbd@gmail",
+      "id": 3
+    },
+    {
+      "name": "products A",
+      "phoneNumber": "0359875710",
+      "email": "longbd@gmail",
+      "id": 4
     }
   ]
 }
