@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { useNavigate, useParams } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { TUser } from "../../models/users";
 
 
@@ -87,11 +88,14 @@ const Form = (props: Props) => {
                   {item}
                 </label>
                 <input
-                  {...register(`${item}`)}
+                  {...register(`${item}`, { required: true })}
                   name={item}
                   type="text"
                   className="p-3 mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 />
+                {errors[item] && errors[item]?.type === 'required' && <span className="text-red-600">
+                  is required !
+                </span>}
               </div>
             );
           })}
