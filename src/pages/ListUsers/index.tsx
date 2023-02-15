@@ -13,13 +13,12 @@ function ListUser(props: Props) {
 
   const handdleRemove = (id) => {
     axios
-      .delete(`http://localhost:8000/users/${id}`)
-      .then(function (response) {
-        setUsers(users.filter(item => item.id !== id));
-        toast.success('xóa thành công !')
-      })
-      .catch(function (error) {
-      });
+        .delete(`http://localhost:8000/users/${id}`)
+        .then(function (response) {
+            setUsers(users.filter(item => item.id !== id))          
+        })
+        .catch(function (error) {
+        });
   };
 
   useEffect(() => {
