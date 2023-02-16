@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Table from "../../components/Table/index.tsx";
 import { TUser } from "../../models/users";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 type Props = {};
 
@@ -15,9 +15,11 @@ function ListUser(props: Props) {
     axios
         .delete(`http://localhost:8000/users/${id}`)
         .then(function (response) {
-            setUsers(users.filter(item => item.id !== id))          
+            setUsers(users.filter(item => item.id !== id))     
+            toast.success('xóa thành công!')     
         })
         .catch(function (error) {
+          toast.error('xóa thất bại!')     
         });
   };
 
