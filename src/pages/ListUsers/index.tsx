@@ -1,18 +1,18 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Table from "../../components/Table/index.tsx";
-import { deleteUser } from "../../redux/userSlice.tsx";
+import reducerUser from "../../redux/ReducerUsers.tsx";
+import { deleteUser, listUsers } from "../../redux/userSlice.tsx";
 
 
 type Props = {};
 
 function ListUser(props: Props) {
-  // const
-  const usersList = useSelector((state:any) => state.users.items)
+  const usersList = useSelector((state: any) => state.users.items);
 
   const dispatch = useDispatch();
 
@@ -21,12 +21,13 @@ function ListUser(props: Props) {
   };
 
   useEffect(() => {
-    axios({
-      method: "get",
-      url: "http://localhost:8000/users",
-    }).then(function (response) {
-      setUsers(response.data);
-    });
+    axios.get(' http://localhost:8000/users')
+      .then(function (response) {
+        dispatch(reducerUser(response.data,{type:"GET",payload:response.data}))
+      })
+      .catch(function (error) {
+        console.log('err get', error);
+      });
   }, []);
 
   return (

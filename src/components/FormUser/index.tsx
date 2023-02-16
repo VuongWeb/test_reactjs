@@ -36,16 +36,16 @@ const Form = (props: Props) => {
   };
 
   useEffect(() => {
-    if (params.id) {
-      const id = params.id;
-      axios
-        .get(`http://localhost:8000/users/${id}`)
-        .then(function (response) {
-        })
-        .catch(function (error) {
-          console.log("sửa lỗi");
-        });
-    }
+    // if (params.id) {
+    //   const id = params.id;
+    //   axios
+    //     .get(`http://localhost:8000/users/${id}`)
+    //     .then(function (response) {
+    //     })
+    //     .catch(function (error) {
+    //       console.log("sửa lỗi");
+    //     });
+    // }
   }, []);
 
   return (
