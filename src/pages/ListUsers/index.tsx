@@ -1,33 +1,33 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
-import Table from "../../components/Table/index.tsx";
-import { TUser } from "../../models/users";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Table from "../../components/Table/index.tsx";
+import reducerUser from "../../redux/ReducerUsers.tsx";
+import { deleteUser, listUsers } from "../../redux/userSlice.tsx";
+
 
 type Props = {};
 
 function ListUser(props: Props) {
-  const [users, setUsers] = useState<TUser[]>([]);
+  const usersList = useSelector((state: any) => state.users.items);
+
+  const dispatch = useDispatch();
 
   const handdleRemove = (id) => {
-    axios
-        .delete(`http://localhost:8000/users/${id}`)
-        .then(function (response) {
-            setUsers(users.filter(item => item.id !== id))          
-        })
-        .catch(function (error) {
-        });
+    dispatch(deleteUser(id));
   };
 
   useEffect(() => {
-    axios({
-      method: "get",
-      url: "http://localhost:8000/users",
-    }).then(function (response) {
-      setUsers(response.data);
-    });
+    axios.get(' http://localhost:8000/users')
+      .then(function (response) {
+        dispatch(reducerUser(response.data,{type:"GET",payload:response.data}))
+      })
+      .catch(function (error) {
+        console.log('err get', error);
+      });
   }, []);
 
   return (
@@ -36,7 +36,7 @@ function ListUser(props: Props) {
       <button className="float-right bg-green-600 py-3 px-5 text-white rounded-[15px]">
         <Link to={`/users/add`}>Add</Link>
       </button>
-      <Table users={users} action={handdleRemove} />
+      <Table users={usersList} action={handdleRemove} />
       {/* <Pagition /> */}
       <ToastContainer />
     </div>
