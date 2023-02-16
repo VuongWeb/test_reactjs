@@ -73,10 +73,10 @@ const HomePage = (props: Props) => {
             </div>
             <div className="hidden lg:flex lg:gap-x-12">
               <a
-                href="#"
+                href="/users"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
-                Product
+                Users
               </a>
               <a
                 href="#"

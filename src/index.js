@@ -3,19 +3,15 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
-// import reducerUser from './reducer/ReducerUsers.tsx';
+import { store } from './redux/store.tsx';
 import reportWebVitals from './reportWebVitals';
-
-// const store = createStore(reducerUser)  ;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <React.StrictMode>
-      {/* <Provider store={store}> */}
+      <Provider store={store}>
         <App />
-      {/* </Provider> */}
-    </React.StrictMode>
+      </Provider>
   </BrowserRouter>
 );
 
