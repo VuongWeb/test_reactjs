@@ -1,3 +1,16 @@
+
+
+Sử dụng router "/users" để test;
+
+npm start để run project
+
+npm run server để chạy server(json server).
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
