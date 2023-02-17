@@ -1,8 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const getUser = createAsyncThunk('users/getUser',async (params,thunkAPI)=>{
-
-})
 
 const userSlice = createSlice({
   name: 'users',
@@ -14,10 +11,14 @@ const userSlice = createSlice({
             state.items.push(action.payload)
         },
         deleteUser:function(state:any,action:any){
-            state.item = state.item.filter(item => item.id != action.payload.id)
+            state.items = state.items.filter(item => item.id != action.payload.id)
+        },
+        getListUsers:function(state,action){
+          // state.items.push(action.payload);
         }
+
   }
 })
-export const { addUser,deleteUser } = userSlice.actions
+export const { addUser,deleteUser ,getListUsers} = userSlice.actions
 
 export default userSlice.reducer
