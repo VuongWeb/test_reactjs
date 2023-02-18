@@ -1,54 +1,6 @@
 {
   "users": [
     {
-      "name": "Lê Văn Vương upate",
-      "phoneNumber": "123 3333",
-      "email": "vuongzxkk1@gmail.com",
-      "id": 1
-    },
-    {
-      "name": "products A",
-      "phoneNumber": "0359875710",
-      "email": "longbd@gmail",
-      "id": 2
-    },
-    {
-      "name": "Đỗ Thị Tuyết Mai",
-      "phoneNumber": "03598757103",
-      "email": "longbd@gmail",
-      "id": 3
-    },
-    {
-      "name": "products A",
-      "phoneNumber": "0359875710",
-      "email": "longbd@gmail",
-      "id": 4
-    },
-    {
-      "name": "vuong",
-      "phoneNumber": "asd",
-      "email": "asd",
-      "id": 5
-    },
-    {
-      "name": "vuong",
-      "phoneNumber": "sadas",
-      "email": "asdasd",
-      "id": 6
-    },
-    {
-      "name": "123123",
-      "phoneNumber": "dsad",
-      "email": "asd",
-      "id": 7
-    },
-    {
-      "name": "123123",
-      "phoneNumber": "sada",
-      "email": "a",
-      "id": 8
-    },
-    {
       "name": "vuong",
       "phoneNumber": "sadas",
       "email": "123",
@@ -67,9 +19,9 @@
       "id": 11
     },
     {
-      "name": "",
-      "phoneNumber": "",
-      "email": "",
+      "name": "Lê Văn Vương",
+      "phoneNumber": "0359875710",
+      "email": "longbd@gmail",
       "id": 12
     }
   ]
