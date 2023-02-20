@@ -1,14 +1,18 @@
 import React from "react";
+import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { TUser } from "../../models/users";
+import { deleteUser } from "../../redux/userSlice.tsx";
+
 
 type Props = {
   users: TUser[];
-  action: any;
 };
 
 const Table = (props: Props) => {
-  const { users, action } = props;
+  const { users } = props;
+  const dispatch = useDispatch();
+
 
   return (
     <table className="table-auto mx-auto text-center">
@@ -39,7 +43,7 @@ const Table = (props: Props) => {
                     className="bg-red-600 py-3 px-5 text-white rounded-[15px]"
                     onClick={() => {
                       if (window.confirm("bạn chắc chắn xóa !")) {
-                        action(item.id);
+                       dispatch(deleteUser(item.id))
                       }
                     }}
                   >

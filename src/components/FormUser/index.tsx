@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addUser } from "../../redux/userSlice.tsx";
+import { addUser, editUsers } from "../../redux/userSlice.tsx";
 
 type Props = {
   propsForm: any;
@@ -18,9 +18,10 @@ const Form = (props: Props) => {
   const [phoneNumber,setPhoneNumber] = useState('')
   const [email,setEmail] = useState('')
 
-
   const params = useParams();
   const navigate = useNavigate();
+
+  const id = params.id;
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
@@ -30,27 +31,28 @@ const Form = (props: Props) => {
       }))
       navigate('/users')
     } else if (propsForm.key == "edit") {
-
-      
+      dispatch(editUsers({
+        name,phoneNumber,email,id
+      }))
+      navigate('/users')
     }
   };
 
-  useEffect(() => {
-    // if (params.id) {
-    //   const id = params.id;
-    //   axios
-    //     .get(`http://localhost:8000/users/${id}`)
-    //     .then(function (response) {
-    //     })
-    //     .catch(function (error) {
-    //       console.log("sửa lỗi");
-    //     });
-    // }
-  }, []);
+  useEffect(()=>{
+    if(!(propsForm.key == 'edit')) return;
+    if(!id) return;
+    axios({
+      method: "get",
+      url: `http://localhost:8000/users/${id}`,
+    }).then(function (response) {
+      setEmail(response.data.email)
+      setPhoneNumber(response.data.phoneNumber)
+      setName(response.data.name)
+    });
+  },[])
 
   return (
 
-    // thieu validate 
     <>
       <form
         action=""
@@ -69,6 +71,7 @@ const Form = (props: Props) => {
                 <input
                   name={item}
                   type="text"
+                 value={item == 'name' ? name :item == 'email' ? email : item == 'phoneNumber' ? phoneNumber : "" }
                   onChange={(e: any) => {
                     if(item == 'name'){
                       setName(e.target.value)
